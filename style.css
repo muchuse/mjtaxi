@@ -3,6 +3,10 @@
 /* Smooth scrolling */
 html {
 	scroll-behavior: smooth;
+	display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Custom scrollbar */
