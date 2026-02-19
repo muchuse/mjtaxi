@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>MJTAXI - Votre chauffeur privé 24/7</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://unpkg.com/lucide@latest"></script>
+	</head>
+	<body class="font-sans antialiased text-gray-800 bg-gray-50">
+		<!-- Navigation -->
+		<nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between items-center h-20">
+					<div class="flex items-center space-x-2">
+						<i data-lucide="car" class="w-8 h-8 text-yellow-500"></i>
+						<span class="text-2xl font-bold text-gray-900">MJ<span class="text-yellow-500">TAXI</span></span>
+					</div>
+					
+					<div class="hidden md:flex items-center space-x-8">
+						<a href="#accueil" class="text-gray-700 hover:text-yellow-500 font-medium transition">Accueil</a>
+						<a href="#services" class="text-gray-700 hover:text-yellow-500 font-medium transition">Services</a>
+						<a href="#flotte" class="text-gray-700 hover:text-yellow-500 font-medium transition">Notre Flotte</a>
+						<!--
+						<a href="#reservation" class="text-gray-700 hover:text-yellow-500 font-medium transition">Réservation</a>-->
+						<a href="#contact" class="bg-yellow-500 text-white px-6 py-2.5 rounded-full font-medium hover:bg-yellow-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+							Réserver maintenant
+						</a>
+					</div> 
+
+					<button class="md:hidden p-2 rounded-lg hover:bg-gray-100" id="mobile-menu-btn">
+						<i data-lucide="menu" class="w-6 h-6"></i>
+					</button>
+				</div>
+			</div>
+
+			<!-- Mobile Menu -->
+			<div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+				<div class="px-4 py-3 space-y-3">
+					<a href="#accueil" class="block text-gray-700 hover:text-yellow-500 font-medium">Accueil</a>
+					<a href="#services" class="block text-gray-700 hover:text-yellow-500 font-medium">Services</a>
+					<a href="#flotte" class="block text-gray-700 hover:text-yellow-500 font-medium">Notre Flotte</a>
+					<a href="#reservation" class="block text-gray-700 hover:text-yellow-500 font-medium">Réservation</a>
+					<a href="#contact" class="block bg-yellow-500 text-white px-4 py-2 rounded-lg text-center font-medium">Réserver maintenant</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section id="accueil" class="relative min-h-screen flex items-center pt-20 pb-12 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+			<div class="absolute inset-0 opacity-20">
+				<img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&q=80" alt="City night" class="w-full h-full object-cover" />
+			</div>
+			<div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
+			
+			<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div class="text-white space-y-6">
+						<div class="inline-flex items-center space-x-2 bg-yellow-500/20 border border-yellow-500/30 rounded-full px-4 py-1.5">
+							<span class="flex h-2 w-2 rounded-full bg-yellow-400 animate-pulse"></span>
+							<span class="text-yellow-400 text-sm font-medium">Disponible 24h/24 - 7j/7</span>
+						</div>
+						<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+							Votre chauffeur privé <span class="text-yellow-500"></span> en quelques clics
+						</h1>
+						<p class="text-lg text-gray-300 max-w-lg">
+							Des trajets confortables et sécurisés avec des chauffeurs professionnels. Réservez votre course en ligne et profitez d'un service haut de gamme.
+						</p>
+						<div class="flex flex-wrap gap-4 pt-4">
+							<a href="#booking-form" class="inline-flex items-center space-x-2 bg-yellow-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-yellow-600 transition shadow-lg hover:shadow-yellow-500/30 transform hover:-translate-y-1">
+								<i data-lucide="calendar" class="w-5 h-5"></i>
+								<span>Réserver maintenant</span>
+							</a>
+							<a href="#services" class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition">
+								<span>Nos services</span>
+								<i data-lucide="arrow-right" class="w-5 h-5"></i>
+							</a>
+						</div>
+						<div class="flex items-center space-x-8 pt-8 text-sm">
+							<div class="flex items-center space-x-2">
+								<i data-lucide="shield-check" class="w-5 h-5 text-yellow-500"></i>
+								<span>Chauffeurs certifiés</span>
+							</div>
+							<div class="flex items-center space-x-2">
+								<i data-lucide="clock" class="w-5 h-5 text-yellow-500"></i>
+								<span>Ponctualité garantie</span>
+							</div>
+							<div class="flex items-center space-x-2">
+								<i data-lucide="credit-card" class="w-5 h-5 text-yellow-500"></i>
+								<span>Paiement sécurisé</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Booking Card -->
+					<div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 transform hover:scale-[1.02] transition duration-300">
+						<h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+							<i data-lucide="map-pin" class="w-6 h-6 text-yellow-500 mr-2"></i>
+							Réserver votre course
+						</h3>
+						<form id="booking-form" class="space-y-4" action="https://formspree.io/f/mdallnjp" method="POST">
+							<input type="hidden" name="_subject" value="Nouvelle réservation MJTAXI">
+							<div class="grid md:grid-cols-2 gap-4">
+								<div class="space-y-2">
+									<label class="text-sm font-medium text-gray-700">Départ</label>
+									<div class="relative">
+										<i data-lucide="navigation" class="w-5 h-5 text-gray-400 absolute left-3 top-3"></i>
+										<input type="text" name="depart" placeholder="Adresse de départ" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" required>
+									</div>
+								</div>
+								<div class="space-y-2">
+									<label class="text-sm font-medium text-gray-700">Destination</label>
+									<div class="relative">
+										<i data-lucide="map-pin" class="w-5 h-5 text-gray-400 absolute left-3 top-3"></i>
+										<input type="text" name="destination" placeholder="Adresse d'arrivée" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" required>
+									</div>
+								</div>
+							</div>
+							
+							<div class="grid md:grid-cols-2 gap-4">
+								<div class="space-y-2">
+									<label class="text-sm font-medium text-gray-700">Date</label>
+									<div class="relative">
+										<i data-lucide="calendar" class="w-5 h-5 text-gray-400 absolute left-3 top-3"></i>
+										<input type="date" name="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" required>
+									</div>
+								</div>
+								<div class="space-y-2">
+									<label class="text-sm font-medium text-gray-700">Heure</label>
+									<div class="relative">
+										<i data-lucide="clock" class="w-5 h-5 text-gray-400 absolute left-3 top-3"></i>
+										<input type="time" name="heure" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" required>
+									</div>
+								</div>
+							</div>
+
+							<div class="space-y-2">
+								<label class="text-sm font-medium text-gray-700">Téléphone</label>
+								<div class="relative">
+									<i data-lucide="phone" class="w-5 h-5 text-gray-400 absolute left-3 top-3"></i>
+									<input type="tel" name="telephone" placeholder="Votre numéro pour vous rappeler" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" required>
+								</div>
+								
+							</div>
+
+							<div class="space-y-2">
+								<label class="text-sm font-medium text-gray-700">Type de véhicule</label>
+								<div class="grid grid-cols-2 gap-3">
+									<label class="cursor-pointer">
+										<input type="radio" name="vehicle" value="berline" class="peer hidden" checked>
+										<div class="border-2 border-gray-200 rounded-xl p-3 text-center peer-checked:border-yellow-500 peer-checked:bg-yellow-50 transition hover:border-yellow-300">
+											<i data-lucide="car" class="w-6 h-6 mx-auto mb-1 text-gray-600 peer-checked:text-yellow-600"></i>
+											<span class="text-sm font-medium">Berline</span>
+										</div>
+									</label>
+									<label class="cursor-pointer">
+										<input type="radio" name="vehicle" value="van" class="peer hidden">
+										<div class="border-2 border-gray-200 rounded-xl p-3 text-center peer-checked:border-yellow-500 peer-checked:bg-yellow-50 transition hover:border-yellow-300">
+											<i data-lucide="truck" class="w-6 h-6 mx-auto mb-1 text-gray-600 peer-checked:text-yellow-600"></i>
+											<span class="text-sm font-medium">Van</span>
+										</div>
+									</label>
+								</div>
+							</div>
+
+							<div class="pt-4">
+								<button type="submit" class="w-full bg-yellow-500 text-white py-4 rounded-xl font-semibold hover:bg-yellow-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+									<i data-lucide="search" class="w-5 h-5"></i>
+									<span>Réservez</span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Stats Section -->
+		<section class="bg-yellow-500 py-12">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+					<div class="space-y-2">
+						<div class="text-4xl font-bold">15K+</div>
+						<div class="text-yellow-100">Courses réalisées</div>
+					</div>
+					<div class="space-y-2">
+						<div class="text-4xl font-bold">50+</div>
+						<div class="text-yellow-100">Chauffeurs</div>
+					</div>
+					<div class="space-y-2">
+						<div class="text-4xl font-bold">4.9</div>
+						<div class="text-yellow-100">Note moyenne</div>
+					</div>
+					<div class="space-y-2">
+						<div class="text-4xl font-bold">24/7</div>
+						<div class="text-yellow-100">Disponibilité</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section id="services" class="py-20 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<span class="text-yellow-500 font-semibold text-sm uppercase tracking-wider">Nos Services</span>
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Des solutions de transport adaptées à vos besoins</h2>
+					<p class="text-gray-600 text-lg">Que vous partiez en voyage d'affaires ou pour le plaisir, nous avons le service qu'il vous faut.</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+					<div class="group bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-200">
+						<div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+							<i data-lucide="plane" class="w-7 h-7 text-yellow-600"></i>
+						</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Transfert Aéroport</h3>
+						<p class="text-gray-600 text-sm mb-4">Prise en charge à votre arrivée et départ ponctuel pour ne pas manquer votre vol.</p>
+						<a href="#reservation" class="text-yellow-500 font-medium text-sm flex items-center hover:underline">
+							Réserver <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+						</a>
+					</div>
+
+					<div class="group bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-200">
+						<div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+							<i data-lucide="briefcase" class="w-7 h-7 text-yellow-600"></i>
+						</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Business</h3>
+						<p class="text-gray-600 text-sm mb-4">Déplacements professionnels avec confort et productivité garantis.</p>
+						<a href="#reservation" class="text-yellow-500 font-medium text-sm flex items-center hover:underline">
+							Réserver <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+						</a>
+					</div>
+
+					<div class="group bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-200">
+						<div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+							<i data-lucide="users" class="w-7 h-7 text-yellow-600"></i>
+						</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Groupe & Events</h3>
+						<p class="text-gray-600 text-sm mb-4">Véhicules spacieux pour vos événements, mariages et sorties en groupe.</p>
+						<a href="#reservation" class="text-yellow-500 font-medium text-sm flex items-center hover:underline">
+							Réserver <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+						</a>
+					</div>
+
+					<div class="group bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-200">
+						<div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+							<i data-lucide="clock" class="w-7 h-7 text-yellow-600"></i>
+						</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Mise à disposition</h3>
+						<p class="text-gray-600 text-sm mb-4">Chauffeur dédié à l'heure ou à la journée selon vos besoins.</p>
+						<a href="#reservation" class="text-yellow-500 font-medium text-sm flex items-center hover:underline">
+							Réserver <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Fleet Section -->
+		<section id="flotte" class="py-20 bg-gray-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<span class="text-yellow-500 font-semibold text-sm uppercase tracking-wider">Notre Flotte</span>
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Véhicule disponibles</h2>
+					<p class="text-gray-600 text-lg">Des véhicules récents, entretenus et équipés pour votre confort et sécurité.</p>
+				</div>
+					                    <!-- Berline -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            <img src="https://cdn-xy.drivek.com/eyJidWNrZXQiOiJkYXRhay1jZG4teHkiLCJrZXkiOiJjb25maWd1cmF0b3ItaW1ncy9jYXJzL2ZyL29yaWdpbmFsL01FUkNFREVTL0MtQ0xBU1MvNDAzMzBfU0VEQU4tNC1ET09SUy9tZXJjZWRlcy1iZW56LWMtY2xhc3Mtc2VkYW4tMjAyMS1mcm9udC1zaWRlLTEuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMDI0LCJoZWlnaHQiOm51bGwsImZpdCI6ImNvdmVyIn19fQ==" alt="Berline" class="w-full h-full object-cover" />
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Tarification Taxi
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Berline Confort</h3>
+                            <p class="text-gray-600 text-sm mb-4">Mercedes Classe E ou équivalent. Idéal pour les trajets urbains.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                                <div class="flex items-center">
+                                    <i data-lucide="users" class="w-4 h-4 mr-1"></i>
+                                    <span>4 passagers</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="briefcase" class="w-4 h-4 mr-1"></i>
+                                    <span>2 bagages</span>
+                                </div>
+                            </div>
+                            <!--button onclick="selectVehicle('berline')" class="w-full bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                                <span>Choisir</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button-->
+                        </div>
+                    </div>
+
+					<!-- Van -->
+					<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ring-2 ring-yellow-500 ring-offset-2">
+						<div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white px-4 py-1 rounded-b-lg text-sm font-semibold z-10">
+							Populaire
+						</div>
+						<div class="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+							<img src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?w=600&q=80" alt="Van" class="w-full h-full object-cover" />
+							<div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+								Tarification Taxi
+							</div>
+						</div>
+						<div class="p-6">
+							<h3 class="text-xl font-bold text-gray-900 mb-2">Van Premium</h3>
+							<p class="text-gray-600 text-sm mb-4">Volkswagen Touran ou équivalent. Parfait pour les groupes et familles.</p>
+							<div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+								<div class="flex items-center">
+									<i data-lucide="users" class="w-4 h-4 mr-1"></i>
+									<span>7 passagers</span>
+								</div>
+								<div class="flex items-center">
+									<i data-lucide="briefcase" class="w-4 h-4 mr-1"></i>
+									<span>6 bagages</span>
+								</div>
+							</div>
+							<!--button onclick="selectVehicle('van')" class="w-full bg-yellow-500 text-white py-3 rounded-xl font-medium hover:bg-yellow-600 transition flex items-center justify-center space-x-2">
+								<span>Choisir</span>
+								<i data-lucide="arrow-right" class="w-4 h-4"></i>
+							</button-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- How It Works -->
+		<section class="py-20 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<span class="text-yellow-500 font-semibold text-sm uppercase tracking-wider">Comment ça marche</span>
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Réservez en 3 étapes simples</h2>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8 relative">
+					<div class="hidden md:block absolute top-1/2 left-1/3 right-1/3 h-0.5 bg-gray-200 -translate-y-1/2"></div>
+					
+					<div class="relative text-center">
+						<div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg relative z-10">1</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Réservez en ligne</h3>
+						<p class="text-gray-600">Choisissez votre trajet, date et type de véhicule en quelques clics.</p>
+					</div>
+
+					<div class="relative text-center">
+						<div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg relative z-10">2</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Confirmation</h3>
+						<p class="text-gray-600">Recevez instantanément la confirmation avec les détails de votre chauffeur.</p>
+					</div>
+
+					<div class="relative text-center">
+						<div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg relative z-10">3</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-2">Voyagez serein</h3>
+						<p class="text-gray-600">Votre chauffeur arrive à l'heure convenue et vous conduit à destination.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials -->
+		<section class="py-20 bg-gray-900 text-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<span class="text-yellow-500 font-semibold text-sm uppercase tracking-wider">Témoignages</span>
+					<h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Ce que nos clients disent</h2>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+						<div class="flex items-center mb-4">
+							<div class="flex text-yellow-500">
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+							</div>
+						</div>
+						<p class="text-gray-300 mb-4">"Service impeccable pour mon transfert aéroport. Le chauffeur était ponctuel, professionnel et le véhicule parfaitement propre. Je recommande vivement !"</p>
+						<div class="flex items-center">
+							<div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold mr-3">SM</div>
+							<div>
+								<div class="font-semibold">Sophie Martin</div>
+								<div class="text-sm text-gray-400">Cliente régulière</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+						<div class="flex items-center mb-4">
+							<div class="flex text-yellow-500">
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+							</div>
+						</div>
+						<p class="text-gray-300 mb-4">"Utilisé pour un événement d'entreprise avec 4 véhicules. Organisation parfaite, chauffeurs professionnels et timing respecté. Un partenaire de confiance."</p>
+						<div class="flex items-center">
+							<div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold mr-3">PD</div>
+							<div>
+								<div class="font-semibold">Pierre Dubois</div>
+								<div class="text-sm text-gray-400">Directeur d'entreprise</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+						<div class="flex items-center mb-4">
+							<div class="flex text-yellow-500">
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+								<i data-lucide="star" class="w-5 h-5 fill-current"></i>
+							</div>
+						</div>
+						<p class="text-gray-300 mb-4">"Mariage parfait grâce à TaxiPremium ! Les voitures étaient magnifiques, les chauffeurs en costume impeccable. Une prestation haut de gamme du début à la fin."</p>
+						<div class="flex items-center">
+							<div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold mr-3">ML</div>
+							<div>
+								<div class="font-semibold">Marie Lefebvre</div>
+								<div class="text-sm text-gray-400">Mariée du mois</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="py-20 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid lg:grid-cols-2 gap-12">
+					<div>
+						<span class="text-yellow-500 font-semibold text-sm uppercase tracking-wider">Contact</span>
+						<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Besoin d'aide ? Contactez-nous</h2>
+						<p class="text-gray-600 mb-8">Notre équipe est disponible 24h/24 pour répondre à vos questions et vous aider dans vos réservations.</p>
+						
+						<div class="space-y-6">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+									<i data-lucide="phone" class="w-6 h-6 text-yellow-600"></i>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">Téléphone</h4>
+									<p class="text-gray-600">Votre N Telephone</p>
+									<p class="text-sm text-gray-500">Disponible 24h/24 - 7j/7</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+									<i data-lucide="mail" class="w-6 h-6 text-yellow-600"></i>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">Email</h4>
+									<p class="text-gray-600">contact@mjtaxi.com</p>
+									<p class="text-sm text-gray-500">Réponse sous 1h</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+									<i data-lucide="map-pin" class="w-6 h-6 text-yellow-600"></i>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">Adresse</h4>
+									<p class="text-gray-600">XXXX<br>44000 NANTES, France</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="flex space-x-4 mt-8">
+							<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition">
+								<i data-lucide="facebook" class="w-5 h-5"></i>
+							</a>
+							<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition">
+								<i data-lucide="instagram" class="w-5 h-5"></i>
+							</a>
+							<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition">
+								<i data-lucide="twitter" class="w-5 h-5"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-2xl p-8">
+						<form id="contact-form" class="space-y-4" action="https://formspree.io/f/mdallnjp" method="POST">
+							<div class="grid md:grid-cols-2 gap-4">
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+									<input type="text" name="nom" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" placeholder="Votre nom" required>
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Prénom</label>
+									<input type="text" name="prenom" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" placeholder="Votre prénom" required>
+								</div>
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+								<input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" placeholder="votre@mail" required>
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+								<input type="tel" name="telephone" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition" placeholder="Votre numéro de téléphone">
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+								<textarea name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition resize-none" placeholder="Votre message..." required></textarea>
+							</div>
+							<input type="hidden" name="_subject" value="Nouveau message depuis votre nom">
+							<button type="submit" class="w-full bg-yellow-500 text-white py-4 rounded-xl font-semibold hover:bg-yellow-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+								<i data-lucide="send" class="w-5 h-5"></i>
+								<span>Envoyer le message</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="bg-gray-900 text-white pt-16 pb-8">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid md:grid-cols-4 gap-8 mb-12">
+					<div class="col-span-2">
+						<div class="flex items-center space-x-2 mb-4">
+							<i data-lucide="car" class="w-8 h-8 text-yellow-500"></i>
+							<span class="text-2xl font-bold">MJ<span class="text-yellow-500">TAXI</span></span>
+						</div>
+						<p class="text-gray-400 mb-4 max-w-sm">Votre partenaire de transport privé depuis 2023. Des trajets sécurisés, confortables et ponctuels pour tous vos déplacements.</p>
+					</div>
+					
+					<div>
+						<h4 class="font-semibold text-lg mb-4">Liens rapides</h4>
+						<ul class="space-y-2 text-gray-400">
+							<li><a href="#accueil" class="hover:text-yellow-500 transition">Accueil</a></li>
+							<li><a href="#services" class="hover:text-yellow-500 transition">Services</a></li>
+							<li><a href="#flotte" class="hover:text-yellow-500 transition">Notre Flotte</a></li>
+							<li><a href="#contact" class="hover:text-yellow-500 transition">Contact</a></li>
+						</ul>
+					</div>
+
+					<div>
+						<h4 class="font-semibold text-lg mb-4">Services</h4>
+						<ul class="space-y-2 text-gray-400">
+							<li><a href="#" class="hover:text-yellow-500 transition">Transfert Aéroport</a></li>
+							<li><a href="#" class="hover:text-yellow-500 transition">Mise à disposition</a></li>
+							<li><a href="#" class="hover:text-yellow-500 transition">Événements</a></li>
+							<li><a href="#" class="hover:text-yellow-500 transition">Business</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+					<p class="text-gray-400 text-sm">&copy; 2026 MJTAXI. Tous droits réservés.</p>
+					<div class="flex space-x-6 mt-4 md:mt-0 text-sm text-gray-400">
+						<a href="#" class="hover:text-white transition">Mentions légales</a>
+						<a href="#" class="hover:text-white transition">Politique de confidentialité</a>
+						<a href="#" class="hover:text-white transition">CGV</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Modal -->
+		<div id="booking-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center">
+			<div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<i data-lucide="check" class="w-8 h-8 text-green-600"></i>
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-2">Réservation reçue !</h3>
+					<p class="text-gray-600 mb-6">Votre demande de réservation a bien été prise en compte. Vous recevrez une confirmation par email dans quelques minutes.</p>
+					<button onclick="closeModal()" class="w-full bg-yellow-500 text-white py-3 rounded-xl font-semibold hover:bg-yellow-600 transition">
+						Parfait, merci !
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+		<script>
+			lucide.createIcons();
+		</script>
+	</body>
+</html>
