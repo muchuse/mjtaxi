@@ -239,4 +239,107 @@ if (window.history.replaceState) {
 	window.history.replaceState(null, null, window.location.href);
 }
 
-console.log('🚕 TaxiPremium website loaded successfully!');
+const ORS_API_KEY = "TA_CLE_ORS";
+
+// ===== TARIFS NANTES =====
+const tarifs = {
+  A: 1.11,
+  B: 1.5
+};
+
+async function calculatePrice() {
+
+  const origin = document.getElementById("departure").value;
+  const destination = document.getElementById("destination").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+
+  if (!origin || !destination || !date || !time) return;
+
+  try {
+
+    const coords = await Promise.all([
+      geocode(origin),
+      geocode(destination)
+    ]);
+
+    if (!coords[0] || !coords[1]) return;
+
+    const [o, d] = coords;
+
+    const routeRes = await fetch(
+      `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          coordinates: [
+            [o.lng, o.lat],
+            [d.lng, d.lat]
+          ]
+        })
+      }
+    );
+
+    const routeData = await routeRes.json();
+
+    const distanceKm =
+      routeData.features[0].properties.summary.distance / 1000;
+
+    const tarifType = getTarifType(date, time);
+    const total = distanceKm * tarifs[tarifType];
+
+    document.getElementById("priceDisplay").innerHTML =
+      `Tarif ${tarifType} estimé : ${total.toFixed(2)} €`;
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// ===== Déterminer jour ou nuit =====
+function getTarifType(dateStr, timeStr) {
+
+  const dateObj = new Date(`${dateStr}T${timeStr}`);
+  const hour = dateObj.getHours();
+  const day = dateObj.getDay(); // 0 = dimanche
+
+  const isNight = (hour >= 19 || hour < 7);
+  const isSunday = (day === 0);
+
+  if (isNight || isSunday) {
+    return "B";
+  } else {
+    return "A";
+  }
+}
+
+// ===== Géocodage =====
+async function geocode(address) {
+
+  const res = await fetch(
+    `https://api.openrouteservice.org/geocode/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(address + " Nantes")}`
+  );
+
+  const data = await res.json();
+
+  if (data.features.length > 0) {
+    return {
+      lat: data.features[0].geometry.coordinates[1],
+      lng: data.features[0].geometry.coordinates[0]
+    };
+  }
+
+  return null;
+}
+
+// ===== Déclenchement automatique =====
+document.getElementById("departure").addEventListener("change", calculatePrice);
+document.getElementById("destination").addEventListener("change", calculatePrice);
+document.getElementById("date").addEventListener("change", calculatePrice);
+document.getElementById("time").addEventListener("change", calculatePrice);
+
+
+
+
+console.log('🚕 MJ44TAXI website loaded successfully!');
