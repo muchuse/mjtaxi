@@ -252,7 +252,7 @@ async function calculatePrice() {
   const origin = document.getElementById("depart").value;
   const destination = document.getElementById("destination").value;
   const date = document.getElementById("date").value;
-  const time = document.getElementById("heure").value;
+  const time = document.getElementById("time").value;
 
   if (!origin || !destination || !date || !time) return;
 
@@ -286,7 +286,7 @@ async function calculatePrice() {
     const distanceKm =
       routeData.features[0].properties.summary.distance / 1000;
 
-    const tarifType = getTarifType(date, heure);
+    const tarifType = getTarifType(date, time);
     const total = distanceKm * tarifs[tarifType];
 
     document.getElementById("priceDisplay").innerHTML =
@@ -337,7 +337,7 @@ async function geocode(address) {
 document.getElementById("depart").addEventListener("change", calculatePrice);
 document.getElementById("destination").addEventListener("change", calculatePrice);
 document.getElementById("date").addEventListener("change", calculatePrice);
-document.getElementById("heure").addEventListener("change", calculatePrice);
+document.getElementById("time").addEventListener("change", calculatePrice);
 
 
 
