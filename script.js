@@ -249,10 +249,17 @@ const tarifs = {
 
 async function calculatePrice() {
 
-  const origin = document.getElementById("depart").value;
-  const destination = document.getElementById("destination").value;
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
+  const timeEl = document.getElementById("time");
+
+  if (!departEl || !destinationEl || !dateEl || !timeEl) {
+    console.error("Un champ est introuvable dans le HTML");
+    return;
+  }
+
+  const origin = departEl.value;
+  const destination = destinationEl.value;
+  const date = dateEl.value;
+  const time = timeEl.value;
 
   if (!origin || !destination || !date || !time) return;
 
