@@ -337,7 +337,7 @@ async function geocode(address) {
 document.getElementById("depart").addEventListener("change", calculatePrice);
 document.getElementById("destination").addEventListener("change", calculatePrice);
 document.getElementById("date").addEventListener("change", calculatePrice);
-document.getElementById("time").addEventListener("change", calculatePrice);
+document.getElementById("heure").addEventListener("change", calculatePrice);
 
 
 
