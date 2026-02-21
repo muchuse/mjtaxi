@@ -334,11 +334,23 @@ async function geocode(address) {
 }
 
 // ===== Déclenchement automatique =====
-document.getElementById("depart").addEventListener("change", calculatePrice);
-document.getElementById("destination").addEventListener("change", calculatePrice);
-document.getElementById("date").addEventListener("change", calculatePrice);
-document.getElementById("heure").addEventListener("change", calculatePrice);
+//document.getElementById("depart").addEventListener("change", calculatePrice);
+//document.getElementById("destination").addEventListener("change", calculatePrice);
+//document.getElementById("date").addEventListener("change", calculatePrice);
+//document.getElementById("heure").addEventListener("change", calculatePrice);
+document.addEventListener("DOMContentLoaded", function () {
 
+  const depart = document.getElementById("depart");
+  const destination = document.getElementById("destination");
+  const date = document.getElementById("date");
+  const time = document.getElementById("time");
+
+  if (depart) depart.addEventListener("input", calculatePrice);
+  if (destination) destination.addEventListener("input", calculatePrice);
+  if (date) date.addEventListener("change", calculatePrice);
+  if (time) time.addEventListener("change", calculatePrice);
+
+});
 
 
 
